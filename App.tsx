@@ -478,9 +478,6 @@ const App: React.FC = () => {
     }
   };
 
-      setIsLoadingMore(false);
-    }
-  };
 
   useEffect(() => {
     const fetchInitialData = async () => {
