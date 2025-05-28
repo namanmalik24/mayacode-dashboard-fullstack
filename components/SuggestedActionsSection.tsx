@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ActionItem, ProgressStatus, ActiveTaskFilterType } from '../types';
+import { ActionItem, ActiveTaskFilterType } from '../types';
 import SuggestedActionItem from './SuggestedActionItem';
 
 interface SuggestedActionsSectionProps {

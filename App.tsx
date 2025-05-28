@@ -409,7 +409,7 @@ const T_EN = texts.en;
 });
 
 
-const initialProcessedActions = SUGGESTED_ACTIONS_DATA.map((action, index) => {
+const initialProcessedActions = SUGGESTED_ACTIONS_DATA.map(action => {
   if (action.id === 'action1' && !action.icon) return { ...action, icon: 'ShieldCheckIcon' };
   if (action.id === 'action2' && !action.icon) return { ...action, icon: 'IdentificationIcon', progressValue: action.progressValue || 60 };
   if (action.id === 'action3' && !action.icon) return { ...action, icon: 'CreditCardIcon' };
@@ -478,24 +478,6 @@ const App: React.FC = () => {
     }
   };
 
-  // Function to load more documents
-  const loadMoreDocuments = async () => {
-    if (!documentsPagination?.hasMore || isLoadingMore) return;
-    
-    setIsLoadingMore(true);
-    try {
-      const response = await apiService.getUserDocuments({
-        page: documentsPagination.nextPage || 1,
-        loadMore: true
-      });
-
-      if (response.success) {
-        setDocumentsList(prev => [...prev, ...response.data.documents]);
-        setDocumentsPagination(response.data.pagination);
-      }
-    } catch (error) {
-      console.error('Failed to load more documents:', error);
-    } finally {
       setIsLoadingMore(false);
     }
   };

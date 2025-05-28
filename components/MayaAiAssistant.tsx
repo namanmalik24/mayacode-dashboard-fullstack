@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SparklesIcon, XMarkIcon as CloseIcon } from './icons'; // CloseIcon might be XMarkIcon
+import { SparklesIcon } from './icons'; // CloseIcon might be XMarkIcon
 import ChatPanel from './ChatPanel';
 import { AiChatMessage } from '../types';
 

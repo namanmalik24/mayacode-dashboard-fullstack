@@ -1,5 +1,4 @@
-
-import { UserProfile, ActionItem, DocumentItem, ProgressStatus, LanguageOption, Language, WorkflowStepConfig } from './types';
+import { UserProfile, ActionItem, DocumentItem, ProgressStatus, LanguageOption, WorkflowStepConfig } from './types';
 
 export const DEFAULT_USER_PROFILE: UserProfile = {
   name: 'Alex Doe',
