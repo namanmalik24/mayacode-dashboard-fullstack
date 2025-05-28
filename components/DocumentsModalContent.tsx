@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { DocumentItem } from '../types';
-import ActionButton from './ActionButton';
+
 import { DocumentTextIcon, ArrowDownTrayIcon, EyeIcon, PaperAirplaneIcon } from './icons';
 
 interface DocumentsModalContentProps {
@@ -9,7 +9,7 @@ interface DocumentsModalContentProps {
   T: any; // Translation object
 }
 
-const getFileIcon = (type: DocumentItem['type']): React.ReactNode => {
+const getFileIcon = (): React.ReactNode => {
   return <DocumentTextIcon className="w-8 h-8 text-accent" />; 
 };
 
@@ -73,7 +73,7 @@ const DocumentsModalContent: React.FC<DocumentsModalContentProps> = ({ documents
             {documents.map((doc, idx) => (
               <tr key={doc.id} className={`transition-colors duration-100 hover:bg-accent/10 ${idx % 2 === 0 ? 'bg-background' : 'bg-card'}`}>
                 <td className="px-4 py-3 align-middle">
-                  {getFileIcon(doc.type)}
+                  {getFileIcon()}
                 </td>
                 <td className="px-4 py-3 align-middle max-w-[180px] sm:max-w-xs truncate">
                   <span className="font-medium text-text-primary" title={doc.name}>{doc.name}</span>

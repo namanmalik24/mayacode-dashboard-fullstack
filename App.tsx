@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { UserProfile, ModalType, ActionItem, ProgressStatus, ActiveTaskFilterType, DocumentItem, Language, WorkflowType, WorkflowStepConfig } from './types';
-import { DEFAULT_USER_PROFILE, SUGGESTED_ACTIONS_DATA, DOCUMENTS_DATA, AVAILABLE_LANGUAGES_RAW, FORM_FILLING_WORKFLOW_ID, JOB_MATCHING_WORKFLOW_ID, FORM_FILLING_STEPS, JOB_MATCHING_STEPS } from './constants';
+import { DEFAULT_USER_PROFILE, SUGGESTED_ACTIONS_DATA, DOCUMENTS_DATA, FORM_FILLING_WORKFLOW_ID, JOB_MATCHING_WORKFLOW_ID, FORM_FILLING_STEPS, JOB_MATCHING_STEPS } from './constants';
 import { apiService, PaginationInfo } from './services/api';
 import BasicInfo from './components/BasicInfo';
 import SuggestedActionsSection from './components/SuggestedActionsSection';
@@ -20,8 +20,7 @@ import {
   FolderIcon, 
   SparklesIcon as MayaCodeLogoIcon, 
   CheckCircleIcon,
-  ClipboardDocumentListIcon,
-  BriefcaseIcon // Added for job matching workflow button
+  ClipboardDocumentListIcon
 } from './components/icons';
 
 // Texts for translation
