@@ -1,0 +1,77 @@
+
+import React from 'react';
+import { UserProfile } from '../types';
+
+interface FullProfileModalContentProps {
+  userProfile: UserProfile;
+  T: any; // Translation object
+}
+
+const ProfileDetailItem: React.FC<{ label: string; value?: string | number | string[] | React.ReactNode, isList?: boolean }> = ({ label, value, isList }) => {
+  if (value === undefined || value === null || (Array.isArray(value) && value.length === 0)) {
+    return null;
+  }
+
+  let displayValue: React.ReactNode;
+  if (isList && Array.isArray(value)) {
+    displayValue = (
+      <ul className="list-disc list-inside text-text-secondary"> 
+        {value.map((item, index) => (
+          <li key={index}>{String(item)}</li>
+        ))}
+      </ul>
+    );
+  } else if (Array.isArray(value)) {
+     displayValue = value.join(', ');
+  }
+   else {
+    displayValue = String(value);
+  }
+
+  return (
+    <div className="bg-background p-3 sm:p-4 rounded-lg mb-3 shadow-sm border border-border-color"> 
+      <h4 className="text-sm font-semibold text-text-primary mb-0.5">{label}</h4>
+      <div className="text-sm text-text-secondary">
+        {displayValue}
+      </div>
+    </div>
+  );
+};
+
+const FullProfileModalContent: React.FC<FullProfileModalContentProps> = ({ userProfile, T }) => {
+  const user = userProfile;
+  const labels = T.fullProfileContent || {};
+
+  return (
+    <div className="space-y-0">
+      <ProfileDetailItem label={labels.fullName || "Full Name"} value={user.name} />
+      {user.alias && <ProfileDetailItem label={labels.alias || "Alias"} value={user.alias} />}
+      {user.age !== undefined && <ProfileDetailItem label={labels.age || "Age"} value={user.age} />}
+      {user.gender && <ProfileDetailItem label={labels.gender || "Gender"} value={user.gender} />}
+      {user.dateOfBirth && <ProfileDetailItem label={labels.dateOfBirth || "Date of Birth"} value={user.dateOfBirth} />}
+      <ProfileDetailItem label={labels.email || "Email Address"} value={user.email} />
+      {user.phone && <ProfileDetailItem label={labels.phone || "Phone Number"} value={user.phone} />}
+      <ProfileDetailItem label={labels.countryOfOrigin || "Country of Origin"} value={user.countryOfOrigin} />
+      <ProfileDetailItem label={labels.dateOfRegistration || "Date of Registration"} value={user.dateOfRegistration} />
+      
+      {user.challenges && user.challenges.length > 0 && (
+        <ProfileDetailItem label={labels.keyChallenges || "Key Challenges"} value={user.challenges} isList />
+      )}
+
+      {user.bio && (
+        <ProfileDetailItem 
+          label={labels.bio || "Biography"} 
+          value={<span className="whitespace-pre-wrap">{user.bio}</span>} 
+        />
+      )}
+      {user.onboardingSummary && (
+        <ProfileDetailItem 
+          label={labels.onboardingSummary || "Onboarding Summary"} 
+          value={<span className="whitespace-pre-wrap">{user.onboardingSummary}</span>} 
+        />
+      )}
+    </div>
+  );
+};
+
+export default FullProfileModalContent;

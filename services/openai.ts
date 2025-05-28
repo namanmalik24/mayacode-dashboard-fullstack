@@ -1,0 +1,28 @@
+import OpenAI from 'openai';
+
+const openai = new OpenAI({
+  apiKey: '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',
+  dangerouslyAllowBrowser: true
+});
+
+export const createChatCompletion = async (messages: { role: string; content: string }[]) => {
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [
+        {
+          role: "system",
+          content: "You are Maya, a friendly and helpful AI assistant for the MayaCode User Dashboard. Your goal is to assist users with understanding their dashboard, profile information, suggested actions, and documents. Be concise and helpful. If a user asks for something you cannot do (e.g., perform actions on their behalf directly through this chat, or provide real-time external data beyond your training), politely inform them of your capabilities. You can provide information based on the user's profile and the general functionality of the dashboard but you do not have direct access to their live data unless it is explicitly provided in the prompt during this conversation."
+        },
+        ...messages
+      ],
+      temperature: 0.7,
+      stream: true
+    });
+
+    return response;
+  } catch (error) {
+    console.error('Error in OpenAI chat completion:', error);
+    throw error;
+  }
+}; 
