@@ -437,7 +437,7 @@ const App: React.FC = () => {
 
   // Progressive loading state
   const [actionsPagination, setActionsPagination] = useState<PaginationInfo | null>(null);
-  const [documentsPagination, setDocumentsPagination] = useState<PaginationInfo | null>(null);
+
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   // Workflow State
@@ -501,7 +501,7 @@ const App: React.FC = () => {
         const documentsResponse = await apiService.getUserDocuments({ loadMore: false });
         if (documentsResponse.success) {
           setDocumentsList(documentsResponse.data.documents);
-          setDocumentsPagination(documentsResponse.data.pagination);
+          // setDocumentsPagination(documentsResponse.data.pagination);
         }
       } catch (error) {
         console.error('Failed to fetch initial data:', error);
