@@ -7,7 +7,21 @@ interface FullProfileModalContentProps {
   T: any; // Translation object
 }
 
-const ProfileDetailItem: React.FC<{ label: string; value?: string | number | string[] | React.ReactNode, isList?: boolean }> = ({ label, value, isList }) => {
+function formatObjectForDisplay(obj: any): React.ReactNode {
+  if (typeof obj !== 'object' || obj === null) return String(obj);
+  // Render as key-value pairs
+  return (
+    <ul className="list-disc list-inside text-sm text-text-secondary">
+      {Object.entries(obj).map(([key, val]) => (
+        <li key={key}>
+          <span className="font-semibold">{key}:</span> {typeof val === 'object' && val !== null ? JSON.stringify(val, null, 2) : String(val)}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+const ProfileDetailItem: React.FC<{ label: string; value?: string | number | string[] | React.ReactNode | object, isList?: boolean }> = ({ label, value, isList }) => {
   if (value === undefined || value === null || (Array.isArray(value) && value.length === 0)) {
     return null;
   }
@@ -22,14 +36,15 @@ const ProfileDetailItem: React.FC<{ label: string; value?: string | number | str
       </ul>
     );
   } else if (Array.isArray(value)) {
-     displayValue = value.join(', ');
-  }
-   else {
-    displayValue = String(value);
+    displayValue = value.join(', ');
+  } else if (typeof value === 'object' && !React.isValidElement(value)) {
+    displayValue = formatObjectForDisplay(value);
+  } else {
+    displayValue = value;
   }
 
   return (
-    <div className="bg-background p-3 sm:p-4 rounded-lg mb-3 shadow-sm border border-border-color"> 
+    <div className="bg-[#f8f5fc] p-3 sm:p-4 rounded-lg shadow-sm border border-border-color"> 
       <h4 className="text-sm font-semibold text-text-primary mb-0.5">{label}</h4>
       <div className="text-sm text-text-secondary">
         {displayValue}
@@ -43,7 +58,7 @@ const FullProfileModalContent: React.FC<FullProfileModalContentProps> = ({ userP
   const labels = T.fullProfileContent || {};
 
   return (
-    <div className="space-y-0">
+    <div className="space-y-4">
       <ProfileDetailItem label={labels.fullName || "Full Name"} value={user.name} />
       {user.alias && <ProfileDetailItem label={labels.alias || "Alias"} value={user.alias} />}
       {user.age !== undefined && <ProfileDetailItem label={labels.age || "Age"} value={user.age} />}
