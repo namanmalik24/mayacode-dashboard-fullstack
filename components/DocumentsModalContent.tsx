@@ -56,7 +56,7 @@ const DocumentsModalContent: React.FC<DocumentsModalContentProps> = ({ documents
   }
 
   return (
-    <div className="flex-grow overflow-y-auto bg-[#f3f0fa] p-4 sm:p-6 rounded-b-lg">
+    <div className="flex-grow overflow-y-auto bg-[#f4f0ff] p-4 sm:p-6 rounded-b-lg">
       <div className="space-y-4">
         {documents.map((doc) => (
           <div key={doc.id} className="bg-[#f8f5fc] p-4 rounded-lg shadow-sm border border-border-color flex items-center gap-4 flex-wrap justify-between w-full min-w-0">

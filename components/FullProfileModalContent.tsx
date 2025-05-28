@@ -58,33 +58,33 @@ const FullProfileModalContent: React.FC<FullProfileModalContentProps> = ({ userP
   const labels = T.fullProfileContent || {};
 
   return (
-    <div className="space-y-4">
-      <ProfileDetailItem label={labels.fullName || "Full Name"} value={user.name} />
-      {user.alias && <ProfileDetailItem label={labels.alias || "Alias"} value={user.alias} />}
-      {user.age !== undefined && <ProfileDetailItem label={labels.age || "Age"} value={user.age} />}
-      {user.gender && <ProfileDetailItem label={labels.gender || "Gender"} value={user.gender} />}
-      {user.dateOfBirth && <ProfileDetailItem label={labels.dateOfBirth || "Date of Birth"} value={user.dateOfBirth} />}
-      <ProfileDetailItem label={labels.email || "Email Address"} value={user.email} />
-      {user.phone && <ProfileDetailItem label={labels.phone || "Phone Number"} value={user.phone} />}
-      <ProfileDetailItem label={labels.countryOfOrigin || "Country of Origin"} value={user.countryOfOrigin} />
-      <ProfileDetailItem label={labels.dateOfRegistration || "Date of Registration"} value={user.dateOfRegistration} />
-      
-      {user.challenges && user.challenges.length > 0 && (
-        <ProfileDetailItem label={labels.keyChallenges || "Key Challenges"} value={user.challenges} isList />
-      )}
-
-      {user.bio && (
-        <ProfileDetailItem 
-          label={labels.bio || "Biography"} 
-          value={<span className="whitespace-pre-wrap">{user.bio}</span>} 
-        />
-      )}
-      {user.onboardingSummary && (
-        <ProfileDetailItem 
-          label={labels.onboardingSummary || "Onboarding Summary"} 
-          value={<span className="whitespace-pre-wrap">{user.onboardingSummary}</span>} 
-        />
-      )}
+    <div className="bg-[#f4f0ff] w-full h-full min-h-screen p-0 m-0">
+      <div className="space-y-4">
+        <ProfileDetailItem label={labels.fullName || "Full Name"} value={user.name} />
+        {user.alias && <ProfileDetailItem label={labels.alias || "Alias"} value={user.alias} />}
+        {user.age !== undefined && <ProfileDetailItem label={labels.age || "Age"} value={user.age} />}
+        {user.gender && <ProfileDetailItem label={labels.gender || "Gender"} value={user.gender} />}
+        {user.dateOfBirth && <ProfileDetailItem label={labels.dateOfBirth || "Date of Birth"} value={user.dateOfBirth} />}
+        <ProfileDetailItem label={labels.email || "Email Address"} value={user.email} />
+        {user.phone && <ProfileDetailItem label={labels.phone || "Phone Number"} value={user.phone} />}
+        <ProfileDetailItem label={labels.countryOfOrigin || "Country of Origin"} value={user.countryOfOrigin} />
+        <ProfileDetailItem label={labels.dateOfRegistration || "Date of Registration"} value={user.dateOfRegistration} />
+        {user.challenges && user.challenges.length > 0 && (
+          <ProfileDetailItem label={labels.keyChallenges || "Key Challenges"} value={user.challenges} isList />
+        )}
+        {user.bio && (
+          <ProfileDetailItem 
+            label={labels.bio || "Biography"} 
+            value={<span className="whitespace-pre-wrap">{user.bio}</span>} 
+          />
+        )}
+        {user.onboardingSummary && (
+          <ProfileDetailItem 
+            label={labels.onboardingSummary || "Onboarding Summary"} 
+            value={<span className="whitespace-pre-wrap">{user.onboardingSummary}</span>} 
+          />
+        )}
+      </div>
     </div>
   );
 };

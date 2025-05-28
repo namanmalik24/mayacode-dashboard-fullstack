@@ -612,7 +612,7 @@ const App: React.FC = () => {
 
   if (isLoading || !userProfile) { 
     return (
-      <div className="flex items-center justify-center min-h-screen bg-background text-text-primary text-lg">
+      <div className="flex items-center justify-center min-h-screen bg-[#f4f0ff] text-text-primary text-lg">
         <MayaCodeLogoIcon className="w-8 h-8 text-accent mr-3 animate-spin" />
         {T.loadingMessage || "Loading Dashboard..."}
       </div>
@@ -637,7 +637,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-background text-text-primary">
+    <div className="flex min-h-screen bg-[#f4f0ff] text-text-primary">
       <aside className="w-64 bg-card text-text-primary flex flex-col fixed top-0 left-0 h-full shadow-xl z-30 border-r border-border-color">
         <div className="p-5 border-b border-border-color">
           <button 
