@@ -35,7 +35,7 @@ const SuggestedActionItem: React.FC<SuggestedActionItemProps> = ({ action, onCli
   return (
     <button
       onClick={() => onClick(action)}
-      className={`w-full max-w-[330px] h-[280px] flex flex-col justify-between p-4 bg-card shadow-lg rounded-lg border-2 ${statusClasses.border} hover:shadow-xl hover:border-accent hover:scale-105 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background`}
+      className={`w-full max-w-[330px] h-[280px] flex flex-col justify-between p-4 bg-card shadow-sm rounded-lg border-2 ${statusClasses.border} hover:shadow-md hover:border-accent hover:scale-105 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background`}
       aria-label={`${translatedTitle}, ${statusText}`}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(action);}}
     >
