@@ -31,7 +31,7 @@ const texts: Record<Language, any> = {
     profilePanelTitle: "Full Profile",
     documentsModalTitle: "Documents & Forms",
     actionDetailModalTitle: "Task Details",
-    viewFullProfile: "View Full Profile",
+    viewFullProfile: "Profile",
     documentsAndForms: "Documents & Forms",
     sidebarLabels: {
       nextSteps: "Pending",
@@ -186,7 +186,7 @@ const texts: Record<Language, any> = {
     profilePanelTitle: "Perfil Completo",
     documentsModalTitle: "Documentos y Formularios",
     actionDetailModalTitle: "Detalles de la Tarea",
-    viewFullProfile: "Ver Perfil Completo",
+    viewFullProfile: "Perfil",
     documentsAndForms: "Documentos y Formularios",
      sidebarLabels: {
       nextSteps: "Pendientes",
@@ -286,7 +286,7 @@ const texts: Record<Language, any> = {
     profilePanelTitle: "Vollständiges Profil",
     documentsModalTitle: "Dokumente & Formulare",
     actionDetailModalTitle: "Aufgabendetails",
-    viewFullProfile: "Vollständiges Profil anzeigen",
+    viewFullProfile: "Profil",
     documentsAndForms: "Dokumente & Formulare",
     sidebarLabels: {
       nextSteps: "Ausstehend",

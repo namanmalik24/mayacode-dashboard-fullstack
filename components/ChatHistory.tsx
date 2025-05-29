@@ -32,7 +32,7 @@ const chatHistoryData = [
 
 const ChatHistorySection: React.FC<ChatHistorySectionProps> = () => {
   return (
-    <div className="px-1 pt-3 mt-2 border-t border-border-color">
+    <div className="px-1 pt-3 mt-2 border-t border-border-color max-h-64 overflow-y-auto">
       <div className="flex justify-between items-center mb-2 pt-1">
         <h3 className="text-xs font-semibold text-text-secondary uppercase tracking-wider">Chat History</h3>
         <button type="button" className="font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background transition-all duration-150 ease-in-out inline-flex items-center px-3 py-1.5 text-sm bg-border-color text-text-primary hover:bg-card-header focus:ring-border-color justify-center px-2 py-0.5 text-xs !min-h-0 !h-auto !leading-none">

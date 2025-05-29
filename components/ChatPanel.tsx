@@ -151,7 +151,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ T, onClose, onMinimize, messages,
         </div>
       </header>
 
-      <div ref={chatContainerRef} className="flex-grow p-3 space-y-3 overflow-y-auto bg-background">
+      <div ref={chatContainerRef} className="flex-grow p-3 space-y-3 overflow-y-scroll bg-background h-96">
         {messages.map(msg => (
           <ChatMessageDisplay key={msg.id} message={msg} T={T} />
         ))}
